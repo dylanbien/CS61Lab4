@@ -10,7 +10,8 @@ def postBlog(collection, params):
 	blogName = params[1]
 	userName = params[2]
 	title = params[3]
-	timestamp = params[4]
-	blogName = params[5]
+	postBody = params[4]
+	tags = params[5]
+	timestamp = params[6]
 
 	permalink  = blogName+'.'+re.sub('[^0-9a-zA-Z]+', '_', title)
