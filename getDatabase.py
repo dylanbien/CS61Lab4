@@ -1,9 +1,11 @@
 from configparser import ConfigParser
 import getpass
 from pymongo import MongoClient
+import shlex
 
+import sys
   
-def read_db_config(filename='Team23Lab4.ini', section='Atlas'):
+def read_db_config(filename='Team23Lab4.ini', section='Mongodb'):
     """ Read database configuration file and return a dictionary object
     Based on examples from [MySQL with Python tutorial ](http://www.mysqltutorial.org/python-mysql)
     :param filename: name of the configuration file
@@ -36,8 +38,14 @@ def get_database():
   # Provide the mongodb atlas url to connect python to mongodb using pymongo
   CONNECTION_STRING = "mongodb+srv://{}:{}@cluster0.zgbwym3.mongodb.net/test".format(dbconfig['user'], dbconfig['password'])
  
-  # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
-  client = MongoClient(CONNECTION_STRING)
+  # Create a connection using MongoClient.
+  try:
+    print('Connecting to MySQL database...')
+    client = MongoClient(CONNECTION_STRING)
+  except Exception as e:
+    print("Failure Connecting")
+    print(e)
+    sys.exit(1)
  
   # Return the database
   return client['lab4']
@@ -48,21 +56,23 @@ if __name__ == '__main__':
   dbname = get_database()
   collection_name = dbname["blog"]
 
-  item_1 = {
-  "_id" : "U1IT00001",
-  "item_name" : "Blender",
-  "max_discount" : "10%",
-  "batch_number" : "RR450020FRG",
-  "price" : 340,
-  "category" : "kitchen appliance"
-  }
+  while True:
+    command = sys.stdin.readline()[:-1] 
 
-  item_2 = {
-    "_id" : "U1IT00002",
-    "item_name" : "Egg",
-    "category" : "food",
-    "quantity" : 12,
-    "price" : 36,
-    "item_description" : "brown country eggs"
-  }
-  collection_name.insert_many([item_1,item_2])
+    if(command == 'done'):
+      break
+    else:
+      params = shlex.split(command)
+
+    if(params[0] == 'post'):
+      print('posting blog')
+    elif(params[0] == 'comment'):
+      print('commenting blog')
+    elif(params[0] == 'delete'):
+      print('deletng blog')
+    elif(params[0] == 'show'):
+      print('showing blog')
+    else:
+      print("error: unrecognized command")
+
+  # print(collection_name)
