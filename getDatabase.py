@@ -54,7 +54,7 @@ def get_database():
 if __name__ == '__main__':
 
   dbname = get_database()
-  collection_name = dbname["blog"]
+  collection = dbname["blog"]
 
   while True:
     command = sys.stdin.readline()[:-1] 
