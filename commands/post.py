@@ -26,6 +26,12 @@ def postBlog(blogs, posts, params):
     }
     blogs.insert_one(blog)
 
+  # check if post with same name exists
+  result = list(posts.find({"_id": permalink}))
+  if result:
+    print("error: post with same name already exists")
+    return
+
   # create post
   if len(tags) != 0:
     post = {
