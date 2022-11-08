@@ -35,7 +35,7 @@ def showBlog(blogs, posts, comments, params):
     postComments = post.get("comments")
 
     for permalink in postComments:
-      showComment(comments, permalink, 0)    
+      showComment(comments, permalink, 1)    
 
 # function to recursively print replies
 def showComment(comments, permalink, level):
@@ -47,7 +47,11 @@ def showComment(comments, permalink, level):
     return
   else:
     comment = result[0]
-    pprint(comment)
+    tabs = ""
+    for i in range(level):
+      tabs = tabs + "\t"
+    for key in comment:
+      print(tabs + key + ": " + str(comment.get(key)))
 
   # find and print all replies
   replies = comment.get("replies")
