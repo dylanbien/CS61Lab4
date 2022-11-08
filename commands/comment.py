@@ -1,28 +1,41 @@
-from pymongo import MongoClient
 import re 
-def commentBlog(collection, params):
+
+def commentBlog(posts, comments, params):
   
+  # check params
   if len(params) != 6:
     print("error: incorrect number of params")
     return
-  
-  blogName = params[1]
-  permalink = params[2]
+
+  # parse params
+  parentPermalink = params[2]
   userName = params[3]
   commentBody = params[4]
   timestamp = params[5]
 
-  permalink  = re.sub('[^0-9a-zA-Z]+', '_', permalink) 
-  comment_path = "comments.{}".format(permalink.split('.')[1])
+  # find referenced post/comment
+  result = list(posts.find({"_id": parentPermalink}))
+  if not result:
+    result = list(comments.find({"_id": parentPermalink}))
+    if not result:
+      print("error: referenced  post/comment does not exist")
+      return
+    else: 
+      type = "reply"
+  else:
+    type = "comment"
 
+  # create comment
   comment = {
+    '_id': timestamp,
     'userName': userName,
-    'permalink': timestamp,
-    'comment': commentBody
+    'comment': commentBody,
+    'replies': []
   }
+  comments.insert_one(comment)
 
-
-  #Add the post
-  collection.update_one(
-    { "_id": blogName},
-    { "$set": {comment_path: comment}})
+  # add to parent post/comment
+  if type == "comment":
+    posts.update_one({"_id": parentPermalink}, {"$push": {"comments": timestamp}})
+  else:
+    comments.update_one({"_id": parentPermalink}, {"$push": {"replies": timestamp}})

@@ -2,10 +2,12 @@ import re
 
 def postBlog(blogs, posts, params):
 
+  # check params
   if len(params) != 7:
     print("error: incorrect number of params")
     return
   
+  # parse params
   blogName = params[1]
   userName = params[2]
   title = params[3]
@@ -45,4 +47,6 @@ def postBlog(blogs, posts, params):
       'comments': []
     }
   posts.insert_one(post)
+
+  # add to parent blog
   blogs.update_one({"_id": blogName}, {"$push": {"posts": permalink}})

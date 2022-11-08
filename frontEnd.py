@@ -32,7 +32,7 @@ if __name__ == '__main__':
       postBlog(blogs, posts, params)
       print('posting blog')
     elif(params[0] == 'comment'):
-      # commentBlog(collection, params)
+      commentBlog(posts, comments, params)
       print('commenting blog')
     elif(params[0] == 'delete'):
       # deleteBlog(collection, params)
