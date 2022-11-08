@@ -13,7 +13,7 @@ if __name__ == '__main__':
   dbname = get_database()
   blogs = dbname["blogs"]
   posts = dbname["posts"]
-  comments = dbname["posts"]
+  comments = dbname["comments"]
 
   while True:
     command = sys.stdin.readline()[:-1] 
