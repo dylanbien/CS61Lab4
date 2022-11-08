@@ -1,15 +1,9 @@
+from pymongo import MongoClient
 from configparser import ConfigParser
 import getpass
-from pymongo import MongoClient
-import shlex
-from commands.post import postBlog
-from commands.comment import commentBlog
-from commands.delete import deleteBlog
-from commands.show import showBlog
-
 
 import sys
-  
+
 def read_db_config(filename='Team23Lab4.ini', section='Mongodb'):
     """ Read database configuration file and return a dictionary object
     Based on examples from [MySQL with Python tutorial ](http://www.mysqltutorial.org/python-mysql)
@@ -54,32 +48,3 @@ def get_database():
  
   # Return the database
   return client['lab4']
-  
-
-if __name__ == '__main__':
-
-  dbname = get_database()
-  collection = dbname["blog"]
-
-  while True:
-    command = sys.stdin.readline()[:-1] 
-
-    if(command == 'done'):
-      break
-    else:
-      params = shlex.split(command)
-
-    if(params[0] == 'post'):
-      postBlog(collection, params)
-      print('posting blog')
-    elif(params[0] == 'comment'):
-      commentBlog(collection, params)
-      print('commenting blog')
-    elif(params[0] == 'delete'):
-      deleteBlog(collection, params)
-      print('deletng blog')
-    elif(params[0] == 'show'):
-      showBlog(collection, params)
-      print('showing blog')
-    else:
-      print("error: unrecognized command")
