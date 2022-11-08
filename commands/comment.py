@@ -18,7 +18,7 @@ def commentBlog(posts, comments, params):
   if not result:
     result = list(comments.find({"_id": parentPermalink}))
     if not result:
-      print("error: referenced  post/comment does not exist")
+      print("error: referenced post/comment does not exist")
       return
     else: 
       type = "reply"
@@ -37,5 +37,7 @@ def commentBlog(posts, comments, params):
   # add to parent post/comment
   if type == "comment":
     posts.update_one({"_id": parentPermalink}, {"$push": {"comments": timestamp}})
+    print("comment posted!")
   else:
     comments.update_one({"_id": parentPermalink}, {"$push": {"replies": timestamp}})
+    print("reply posted!")

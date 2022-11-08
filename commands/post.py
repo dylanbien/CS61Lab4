@@ -50,3 +50,4 @@ def postBlog(blogs, posts, params):
 
   # add to parent blog
   blogs.update_one({"_id": blogName}, {"$push": {"posts": permalink}})
+  print("post uploaded!")

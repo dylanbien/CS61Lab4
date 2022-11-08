@@ -29,16 +29,16 @@ if __name__ == '__main__':
       params = shlex.split(command)
 
     if(params[0] == 'post'):
+      print('posting...')
       postBlog(blogs, posts, params)
-      print('posting blog')
     elif(params[0] == 'comment'):
+      print('commenting...')
       commentBlog(posts, comments, params)
-      print('commenting blog')
     elif(params[0] == 'delete'):
-      # deleteBlog(collection, params)
-      print('deleting blog')
+      print('deleting...')
+      deleteBlog(posts, comments, params)
     elif(params[0] == 'show'):
+      print('loading...')
       # showBlog(collection, params)
-      print('showing blog')
     else:
       print("error: unrecognized command")
