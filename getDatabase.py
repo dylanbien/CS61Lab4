@@ -35,16 +35,17 @@ def get_database():
     dbconfig['password'] = getpass.getpass("database password ? :")
   
   # Provide the mongodb atlas url to connect python to mongodb using pymongo
-  CONNECTION_STRING = "mongodb+srv://{}:{}@cluster0.zgbwym3.mongodb.net/test".format(dbconfig['user'], dbconfig['password'])
+  CONNECTION_STRING = "mongodb+srv://{}:{}@cluster0.{}.mongodb.net/test".format(dbconfig['user'], dbconfig['password'], dbconfig['connect'])
  
   # Create a connection using MongoClient.
   try:
-    print('Connecting to MySQL database...')
+    print('Connecting to MongoDB database...')
     client = MongoClient(CONNECTION_STRING)
   except Exception as e:
     print("Failure Connecting")
     print(e)
     sys.exit(1)
  
-  # Return the database
-  return client['lab4']
+  # Success and return the database
+  print('Connected to MongoDB database.')
+  return client[dbconfig['db']]

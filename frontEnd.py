@@ -15,7 +15,12 @@ if __name__ == '__main__':
   posts = dbname["posts"]
   comments = dbname["comments"]
 
+  blogs.drop()
+  posts.drop()
+  comments.drop()
+
   while True:
+    print("Welcome. What would you like to do?: ")
     command = sys.stdin.readline()[:-1] 
 
     if(command == 'done'):
@@ -31,7 +36,7 @@ if __name__ == '__main__':
       print('commenting blog')
     elif(params[0] == 'delete'):
       # deleteBlog(collection, params)
-      print('deletng blog')
+      print('deleting blog')
     elif(params[0] == 'show'):
       # showBlog(collection, params)
       print('showing blog')

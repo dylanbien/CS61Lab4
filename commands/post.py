@@ -1,4 +1,3 @@
-from pymongo import MongoClient
 import re
 
 def postBlog(blogs, posts, params):
@@ -13,8 +12,8 @@ def postBlog(blogs, posts, params):
   postBody = params[4]
   tags = params[5]
   timestamp = params[6]
-  
-  permalink  = blogName+'.'+re.sub('[^0-9a-zA-Z]+', '_', title)
+
+  permalink = blogName + '.' + re.sub('[^0-9a-zA-Z]+', '_', title)
   
   # If the blog doesnt exist, create it:
   result = list(blogs.find({"_id": blogName}))
@@ -25,20 +24,25 @@ def postBlog(blogs, posts, params):
     }
     blogs.insert_one(blog)
 
-  post = {
-    '_id': permalink,
-    'title': title, 
-    'userName': userName,
-    'tags': tags,
-    'timestamp': timestamp,
-    'postBody':  postBody,
-    'comments': []
-  }
-
-  # If the blog exist, throw an error it:
-
-  #Add the post
+  # create post
+  if len(tags) != 0:
+    post = {
+      '_id': permalink,
+      'title': title, 
+      'userName': userName,
+      'tags': tags.split(","),
+      'timestamp': timestamp,
+      'postBody':  postBody,
+      'comments': []
+    }
+  else:
+    post = {
+      '_id': permalink,
+      'title': title, 
+      'userName': userName,
+      'timestamp': timestamp,
+      'postBody':  postBody,
+      'comments': []
+    }
   posts.insert_one(post)
-
-  # Add the post to the blogs array
-
+  blogs.update_one({"_id": blogName}, {"$push": {"posts": permalink}})
