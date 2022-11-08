@@ -11,7 +11,9 @@ import sys
 if __name__ == '__main__':
 
   dbname = get_database()
-  collection = dbname["blog"]
+  blogs = dbname["blogs"]
+  posts = dbname["posts"]
+  comments = dbname["posts"]
 
   while True:
     command = sys.stdin.readline()[:-1] 
@@ -22,16 +24,16 @@ if __name__ == '__main__':
       params = shlex.split(command)
 
     if(params[0] == 'post'):
-      postBlog(collection, params)
+      postBlog(blogs, posts, params)
       print('posting blog')
     elif(params[0] == 'comment'):
-      commentBlog(collection, params)
+      # commentBlog(collection, params)
       print('commenting blog')
     elif(params[0] == 'delete'):
-      deleteBlog(collection, params)
+      # deleteBlog(collection, params)
       print('deletng blog')
     elif(params[0] == 'show'):
-      showBlog(collection, params)
+      # showBlog(collection, params)
       print('showing blog')
     else:
       print("error: unrecognized command")

@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import re
 
-def postBlog(collection, params):
+def postBlog(blogs, posts, params):
 
   if len(params) != 7:
     print("error: incorrect number of params")
@@ -17,33 +17,28 @@ def postBlog(collection, params):
   permalink  = blogName+'.'+re.sub('[^0-9a-zA-Z]+', '_', title)
   
   # If the blog doesnt exist, create it:
-  result = list(collection.find({"_id": blogName}))
+  result = list(blogs.find({"_id": blogName}))
   if not result:
     blog = {
       '_id': blogName,
-      'posts': {},
-      'comments': {}
+      'posts': []
     }
-    collection.insert_one(blog)
+    blogs.insert_one(blog)
 
   post = {
-    'permalink':permalink,
+    '_id': permalink,
     'title': title, 
     'userName': userName,
     'tags': tags,
     'timestamp': timestamp,
     'postBody':  postBody,
-    'comments': {}
+    'comments': []
   }
 
-  post_path = "posts.{}".format(permalink.split('.')[1])
-
   # If the blog exist, throw an error it:
-  if(list(collection.find({post_path:{"$exists":"true"}}))):
-    print("post already exists")
-    return
 
   #Add the post
-  collection.update_one(
-    { "_id": blogName},
-    { "$set": {post_path: post}})
+  posts.insert_one(post)
+
+  # Add the post to the blogs array
+
