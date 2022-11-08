@@ -1,5 +1,3 @@
-import re 
-
 def commentBlog(posts, comments, params):
   
   # check params

@@ -39,6 +39,6 @@ if __name__ == '__main__':
       deleteBlog(posts, comments, params)
     elif(params[0] == 'show'):
       print('loading...')
-      # showBlog(collection, params)
+      showBlog(blogs, posts, comments, params)
     else:
       print("error: unrecognized command")

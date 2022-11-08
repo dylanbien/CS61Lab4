@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-import re
 
 def deleteBlog(posts, comments, params):
 
