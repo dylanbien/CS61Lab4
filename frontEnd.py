@@ -21,14 +21,16 @@ if __name__ == '__main__':
 
   while True:
     print("Welcome. What would you like to do?: ")
-    command = sys.stdin.readline()[:-1] 
+    command = sys.stdin.readline().strip()
 
     if(command == 'done'):
       break
     else:
       params = shlex.split(command)
-
-    if(params[0] == 'post'):
+    
+    if(len(params) == 0):
+      continue
+    elif(params[0] == 'post'):
       print('posting...')
       postBlog(blogs, posts, params)
     elif(params[0] == 'comment'):
