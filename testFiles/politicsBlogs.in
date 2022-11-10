@@ -1,12 +1,9 @@
 post politics Zorro "This Title has 26-letters!" "body contents ..." "tag1, tag2, tag3" 2018-10-02T11:01:28.425Z
 comment politics politics.This_Title_has_26_letters_ Chico "comment contents" 2018-10-02T11:02:28.965Z
-
 post politics Gummo "Here we go again?" "body contents ..." "tag1, tag2, tag3" 2018-10-02T11:01:28.425Z
 comment politics politics.Here_we_go_again_ Harpo "comment contents" 2018-11-02T11:02:42.966Z
 comment politics 2018-11-02T11:02:42.966Z Zeppo "comment on comment contents" 2017-11-02T02:12:18.965Z
-
 comment politics 2018-11-02T11:02:42.966Z Harpo "comment to be deleted" 2017-11-02T04:14:05.232Z
 delete politics 2017-11-02T04:14:05.232Z Harpo 2017-11-02T04:15:05.232Z
-
 show politics
 done
