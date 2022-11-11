@@ -13,9 +13,9 @@ def deleteBlog(posts, comments, params):
   timestamp = params[4]
 
   # find referenced post/comment
-  result = list(posts.find({"_id": permalink}))
+  result = list(posts.find({"_id": permalink, "deleted": {"$exists": False}}))
   if not result:
-    result = list(comments.find({"_id": permalink}))
+    result = list(comments.find({"_id": permalink, "deleted": {"$exists": False}}))
     if not result:
       print("error: referenced post/comment does not exist")
       return
@@ -30,5 +30,5 @@ def deleteBlog(posts, comments, params):
     posts.update_one({"_id": permalink}, {"$set": {"deleted": timestamp, "postBody": deleteMessage}})
     print("post deleted!")
   else:
-    comments.update_one({"_id": permalink}, {"$set": {"timestamp": timestamp, "comment": deleteMessage}})
+    comments.update_one({"_id": permalink}, {"$set": {"timestamp": timestamp, "comment": deleteMessage, "deleted": True}})
     print("comment deleted!")

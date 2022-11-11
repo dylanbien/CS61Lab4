@@ -12,9 +12,9 @@ def commentBlog(posts, comments, params):
   timestamp = params[5]
 
   # find referenced post/comment
-  result = list(posts.find({"_id": parentPermalink}))
+  result = list(posts.find({"_id": parentPermalink, "deleted": {"$exists": False}}))
   if not result:
-    result = list(comments.find({"_id": parentPermalink}))
+    result = list(comments.find({"_id": parentPermalink, "deleted": {"$exists": False}}))
     if not result:
       print("error: referenced post/comment does not exist")
       return
