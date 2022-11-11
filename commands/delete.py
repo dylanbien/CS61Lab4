@@ -27,8 +27,8 @@ def deleteBlog(posts, comments, params):
   # delete post/comment
   deleteMessage = "deleted by " + userName
   if type == "post":
-    posts.update_one({"_id": permalink}, {"$set": {"deleted": timestamp, "postBody": deleteMessage}})
+    posts.update_one({"_id": permalink}, {"$set": {"timestamp": timestamp, "postBody": deleteMessage, "deleted": True}})
     print("post deleted!")
   else:
-    comments.update_one({"_id": permalink}, {"$set": {"timestamp": timestamp, "comment": deleteMessage, "deleted": True}})
+    comments.update_one({"_id": permalink}, {"$set": {"comment": deleteMessage, "deleted": timestamp}})
     print("comment deleted!")

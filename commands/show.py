@@ -17,7 +17,7 @@ def showBlog(blogs, posts, comments, params):
     return
   else:
     blog = result[0]
-    pprint(blog)
+    print("\nin " + blog.get("_id") + ":\n")
 
   # find and print posts
   blogPosts = blog.get("posts")
@@ -29,13 +29,30 @@ def showBlog(blogs, posts, comments, params):
       return
     else:
       post = result[0]
-      pprint(post)
+
+      title = post.get("title")
+      userName = post.get("userName")
+      tags = post.get("tags")
+      timestamp = post.get("timestamp")
+      body = post.get("postBody")
+
+      print("\t- - - -")
+      print("\ttitle: " + title)
+      print("\tuserName: " + userName)
+      if tags is not None:
+        print("\ttags: " + tags)
+      print("\tpermalink: " + permalink)
+      if (post.get("deleted") is None):
+        print("\ttimestamp: " + timestamp)
+        print("\tbody:\n\t  " + body + "\n")
+      else:
+        print("\t**post deleted at " + timestamp + "**:\n\t  " + body + "\n")
 
     # find and print comments
     postComments = post.get("comments")
 
     for permalink in postComments:
-      showComment(comments, permalink, 1)    
+      showComment(comments, permalink, 2)    
 
 # function to recursively print replies
 def showComment(comments, permalink, level):
@@ -50,8 +67,17 @@ def showComment(comments, permalink, level):
     tabs = ""
     for i in range(level):
       tabs = tabs + "\t"
-    for key in comment:
-      print(tabs + key + ": " + str(comment.get(key)))
+    userName = comment.get("userName")
+    body = comment.get("comment")
+    deletedTimestamp = comment.get("deleted")
+    
+    print(tabs + "- - - -")
+    print(tabs + "userName: " + userName)
+    print(tabs + "permalink: " + permalink)
+    if (deletedTimestamp is None):
+      print(tabs + "comment:\n" + tabs + "  " + body + "\n")
+    else:
+      print(tabs + "**comment deleted at " + deletedTimestamp + "**:\n" + tabs + "  " + body + "\n")
 
   # find and print all replies
   replies = comment.get("replies")
