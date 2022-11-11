@@ -23,6 +23,8 @@ def commentBlog(posts, comments, params):
   else:
     type = "comment"
 
+  blogName = result[0].get("blog")
+
   # check if comment at same timestamp exists (shouldn't happen, but to prevent error with manual inserts)
   result = list(comments.find({"_id": timestamp}))
   if result:
@@ -32,6 +34,7 @@ def commentBlog(posts, comments, params):
   # create comment
   comment = {
     '_id': timestamp,
+    'blog': blogName,
     'userName': userName,
     'comment': commentBody,
     'replies': []

@@ -1,5 +1,3 @@
-from pprint import pprint
-
 def showBlog(blogs, posts, comments, params):
 
   # check params

@@ -36,9 +36,10 @@ def postBlog(blogs, posts, params):
   if len(tags) != 0:
     post = {
       '_id': permalink,
+      'blog': blogName,
       'title': title, 
       'userName': userName,
-      'tags': tags.split(","),
+      'tags': tags,
       'timestamp': timestamp,
       'postBody':  postBody,
       'comments': []
@@ -46,6 +47,7 @@ def postBlog(blogs, posts, params):
   else:
     post = {
       '_id': permalink,
+      'blog': blogName,
       'title': title, 
       'userName': userName,
       'timestamp': timestamp,

@@ -5,6 +5,7 @@ from commands.post import postBlog
 from commands.comment import commentBlog
 from commands.delete import deleteBlog
 from commands.show import showBlog
+from commands.find import findBlog
 
 import sys
   
@@ -20,7 +21,7 @@ if __name__ == '__main__':
   comments.drop()
 
   while True:
-    print("Welcome. What would you like to do?: ")
+    print("What would you like to do?: ")
     command = sys.stdin.readline().strip()
 
     if(command == 'done'):
@@ -42,5 +43,8 @@ if __name__ == '__main__':
     elif(params[0] == 'show'):
       print('loading...')
       showBlog(blogs, posts, comments, params)
+    elif(params[0] == 'find'):
+      print('finding...')
+      findBlog(blogs, posts, comments, params)
     else:
       print("error: unrecognized command")
