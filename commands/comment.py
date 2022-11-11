@@ -23,6 +23,12 @@ def commentBlog(posts, comments, params):
   else:
     type = "comment"
 
+  # check if comment at same timestamp exists (shouldn't happen, but to prevent error with manual inserts)
+  result = list(comments.find({"_id": timestamp}))
+  if result:
+    print("error: comment already posted with same timestamp")
+    return
+
   # create comment
   comment = {
     '_id': timestamp,
