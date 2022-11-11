@@ -25,7 +25,7 @@ def findBlog(blogs, posts, comments, params):
     matchComments = list(comments.find({"blog": blogName, "comment": {"$regex": searchStr}, "deleted": {"$exists": False}}))
     
     if not matchPosts and not matchComments:
-        print("\t- - - -")
+        print("- - - -")
         print("no search results\n")
     else:
         if matchPosts:
