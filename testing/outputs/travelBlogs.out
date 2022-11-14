@@ -1,0 +1,139 @@
+Connecting to MongoDB database...
+Connected to MongoDB database.
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+deleting...
+post deleted!
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+commenting...
+reply posted!
+What would you like to do?: 
+commenting...
+reply posted!
+What would you like to do?: 
+commenting...
+reply posted!
+What would you like to do?: 
+deleting...
+comment deleted!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+deleting...
+comment deleted!
+What would you like to do?: 
+loading...
+
+in europe:
+
+	- - - -
+	title: Lets travel to Europe
+	userName: dbienstock
+	tags: travel, trip, exciting
+	permalink: europe.Lets_travel_to_Europe
+	timestamp: 2021-10-04T12:04:28.425Z
+	body:
+	  I am so excited to go to Europe and share my experiences
+
+		- - - -
+		userName: arevers
+		permalink: 2021-10-05T16:06:53.966Z
+		comment:
+		  Make sure to share pictures
+
+			- - - -
+			userName: aowens
+			permalink: 2021-10-07T05:49:23.166Z
+			comment:
+			  Yes pictures are necessary
+
+			- - - -
+			userName: phoward
+			permalink: 2021-10-07T04:31:55.763Z
+			comment:
+			  I really want to see pictures of the Rome
+
+			- - - -
+			userName: phoward
+			permalink: 2021-10-08T19:16:43.947Z
+			**comment deleted at 2021-10-08T21:34:39.873Z**:
+			  deleted by ecrocker
+
+		- - - -
+		userName: aowens
+		permalink: 2021-10-09T12:33:12.836Z
+		comment:
+		  What time do you fly out?
+
+	- - - -
+	title: I also am coming to Europe
+	userName: ecrocker
+	permalink: europe.I_also_am_coming_to_Europe
+	timestamp: 2021-10-05T10:01:28.425Z
+	body:
+	  I wonder what countries we want to visit
+
+		- - - -
+		userName: aowens
+		permalink: 2021-10-10T03:23:34.589Z
+		comment:
+		  Did you remember sunscreen?
+
+	- - - -
+	title: Day 0: travel
+	userName: ecrocker
+	permalink: europe.Day_0_travel
+	**post deleted at 2021-10-05T12:24:12.873Z**:
+	  deleted by dbienstock
+
+What would you like to do?: 
+loading...
+
+in asia:
+
+	- - - -
+	title: But wait, there is more!
+	userName: ecrocker
+	tags: asia, flying
+	permalink: asia.But_wait_there_is_more_
+	timestamp: 2021-10-12T11:01:30.425Z
+	body:
+	  I also want to travel to Asia
+
+		- - - -
+		userName: dbienstock
+		permalink: 2021-10-15T13:52:29.602Z
+		comment:
+		  A trip without me. So jealous
+
+		- - - -
+		userName: dbienstock
+		permalink: 2021-10-15T14:32:53.602Z
+		**comment deleted at 2021-10-15T05:25:32.709Z**:
+		  deleted by dbienstock
+
+What would you like to do?: 

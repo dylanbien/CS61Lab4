@@ -1,0 +1,60 @@
+Connecting to MongoDB database...
+Connected to MongoDB database.
+What would you like to do?: 
+error: unrecognized command
+What would you like to do?: 
+posting...
+error: incorrect number of params
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+posting...
+error: post with same name already exists
+What would you like to do?: 
+commenting...
+error: comment already posted with same timestamp
+What would you like to do?: 
+deleting...
+post deleted!
+What would you like to do?: 
+deleting...
+comment deleted!
+What would you like to do?: 
+commenting...
+error: referenced post/comment does not exist
+What would you like to do?: 
+commenting...
+error: referenced post/comment does not exist
+What would you like to do?: 
+commenting...
+error: referenced post/comment does not exist
+What would you like to do?: 
+commenting...
+error: referenced post/comment does not exist
+What would you like to do?: 
+commenting...
+error: referenced post/comment does not exist
+What would you like to do?: 
+loading...
+
+in blog:
+
+	- - - -
+	title: A basic blog
+	userName: dbienstock
+	tags: tag1
+	permalink: blog.A_basic_blog
+	**post deleted at 2021-11-02T13:21:32.638Z**:
+	  deleted by ecrocker
+
+		- - - -
+		userName: dbienstock
+		permalink: 2021-10-04T12:04:32.659Z
+		**comment deleted at 2021-11-02T22:37:29.269Z**:
+		  deleted by ecrocker
+
+What would you like to do?: 

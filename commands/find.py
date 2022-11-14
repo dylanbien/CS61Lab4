@@ -21,7 +21,7 @@ def findBlog(blogs, posts, comments, params):
         print("\nin " + blog.get("_id") + ":\n")
 
     # find and print posts
-    matchPosts = list(posts.find({"blog": blogName, "postBody": {"$regex": searchStr}, "deleted": {"$exists": False}}))
+    matchPosts = list(posts.find({"blog": blogName, "$or": [{"postBody": {"$regex": searchStr}}, {"tags": {"$regex": searchStr}}], "deleted": {"$exists": False}}))
     matchComments = list(comments.find({"blog": blogName, "comment": {"$regex": searchStr}, "deleted": {"$exists": False}}))
     
     if not matchPosts and not matchComments:

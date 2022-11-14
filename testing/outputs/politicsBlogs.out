@@ -1,0 +1,124 @@
+Connecting to MongoDB database...
+Connected to MongoDB database.
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+commenting...
+reply posted!
+What would you like to do?: 
+commenting...
+reply posted!
+What would you like to do?: 
+posting...
+post uploaded!
+What would you like to do?: 
+commenting...
+comment posted!
+What would you like to do?: 
+deleting...
+comment deleted!
+What would you like to do?: 
+loading...
+
+in politics:
+
+	- - - -
+	title: This Title has 26-letters!
+	userName: Zorro
+	tags: tag1, tag2, tag3, hullabaloo
+	permalink: politics.This_Title_has_26_letters_
+	timestamp: 2018-10-02T11:01:28.425Z
+	body:
+	  body contents ...
+
+		- - - -
+		userName: Chico
+		permalink: 2018-10-02T11:02:28.965Z
+		comment:
+		  comment contents
+
+	- - - -
+	title: Here we go again?
+	userName: Gummo
+	tags: tag1, tag2, tag3
+	permalink: politics.Here_we_go_again_
+	timestamp: 2018-10-02T11:01:28.425Z
+	body:
+	  body contents ...
+
+		- - - -
+		userName: Harpo
+		permalink: 2018-11-02T11:02:42.966Z
+		comment:
+		  comment contents
+
+			- - - -
+			userName: Zeppo
+			permalink: 2017-11-02T02:12:18.965Z
+			comment:
+			  comment on comment with hullabaloo
+
+			- - - -
+			userName: Harpo
+			permalink: 2017-11-02T04:14:05.232Z
+			**comment deleted at 2017-11-02T04:15:05.232Z**:
+			  deleted by Harpo
+
+	- - - -
+	title: A basic Title
+	userName: Harpo
+	tags: tag1
+	permalink: politics.A_basic_Title
+	timestamp: 2018-10-03T11:03:31.305Z
+	body:
+	  body contents ...
+
+		- - - -
+		userName: Harpo
+		permalink: 2017-11-02T12:35:39.386Z
+		comment:
+		  comment wth hullabaloo
+
+What would you like to do?: 
+finding...
+
+in politics:
+
+- - - -
+posts matching search:
+
+	- - - -
+	title: This Title has 26-letters!
+	userName: Zorro
+	tags: tag1, tag2, tag3, hullabaloo
+	permalink: politics.This_Title_has_26_letters_
+	timestamp: 2018-10-02T11:01:28.425Z
+	body:
+	  body contents ...
+
+- - - -
+comments matching search:
+
+	- - - -
+	userName: Zeppo
+	permalink: 2017-11-02T02:12:18.965Z
+	comment:
+	  comment on comment with hullabaloo
+
+	- - - -
+	userName: Harpo
+	permalink: 2017-11-02T12:35:39.386Z
+	comment:
+	  comment wth hullabaloo
+
+What would you like to do?: 

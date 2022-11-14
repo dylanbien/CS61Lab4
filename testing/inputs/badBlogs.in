@@ -1,27 +1,15 @@
---Bad requests
 unknownAction blog dbienstock "A basic blog"
 post blog dbienstock "Not enough parameters"
-
---Create basic blog
 post blog dbienstock "A basic blog" "blog content" "tag1" 2021-10-04T12:04:28.425Z
 comment blog blog.A_basic_blog dbienstock "simple comment" 2021-10-04T12:04:32.659Z
-
---Acting on an existing permalink
 post blog ecrocker "A basic blog" "more blog content" "tag2, tag2" 2021-10-04T18:12:40.887Z
 comment blog blog.A_basic_blog dbienstock "same simple comment" 2021-10-04T12:04:32.659Z
-
---Delete blog content
 delete blog blog.A_basic_blog ecrocker 2021-11-02T13:21:32.638Z
 delete blog 2021-10-04T12:04:32.659Z ecrocker 2021-11-02T22:37:29.269Z
-
---Try to comment on delete posts/comment
 comment blog blog.A_basic_blog dbienstock "commenting on a deleted post" 2021-11-03T12:04:45.739Z
-comment blog 2021-10-04T12:04:32.659Z "commenting on a deleted comment" 2021-11-03T12:06:29.503Z
-
---Try to comment on blog, post, and comment that don't exist
+comment blog 2021-10-04T12:04:32.659Z dbienstock "commenting on a deleted comment" 2021-11-03T12:06:29.503Z
 comment nonexistantBlog blog.A_basic_blog dbienstock "commenting on a non existant blog" 2021-11-07T04:23:46.356Z
 comment blog blog.fakePost dbienstock "commenting on a non existant post" 2021-11-07T10:45:46.367Z
 comment blog 2021-11-03T10:25:48.211Z dbienstock "commenting on a non existant comment" 2021-11-07T12:12:59.307Z
-
 show blog
 done
